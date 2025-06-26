@@ -1,99 +1,90 @@
-# node-typescript-boilerplate
+# **node-typescript-boilerplate**
+---
 
-[![Sponsor][sponsor-badge]][sponsor]
-[![TypeScript version][ts-badge]][typescript-5-7]
-[![Node.js version][nodejs-badge]][nodejs]
-[![APLv2][license-badge]][license]
-[![Build Status - GitHub Actions][gha-badge]][gha-ci]
+[![赞助][sponsor-badge]][sponsor]  
+[![TypeScript 版本][ts-badge]][typescript-5-7]  
+[![Node.js 版本][nodejs-badge]][nodejs]  
+[![APLv2 许可证][license-badge]][license]  
+[![构建状态 - GitHub Actions][gha-badge]][gha-ci]
 
-👩🏻‍💻 Developer Ready: A comprehensive template. Works out of the box for most [Node.js][nodejs] projects.
+👩🏻‍💻 **开发者就绪**：全面的模板，适用于大多数 [Node.js][nodejs] 项目，开箱即用。
 
-🏃🏽 Instant Value: All basic tools included and configured:
-
+🏃🏽 **即时价值**：包含并预配置所有基础工具：
 - [TypeScript][typescript] [5.7][typescript-5-7]
-- [ESM][esm]
-- [ESLint][eslint] with some initial rules recommendation
-- [Vitest][vitest] for fast unit testing and code coverage
-- Type definitions for Node.js
-- [Prettier][prettier] to enforce consistent code style
-- NPM [scripts](#available-scripts) for common operations
-- [EditorConfig][editorconfig] for consistent coding style
-- Reproducible environments thanks to [Volta][volta]
-- Example configuration for [GitHub Actions][gh-actions]
-- Simple example of TypeScript code and unit test
+- [ESM][esm]（ES 模块）
+- [ESLint][eslint] 及初始规则推荐
+- [Vitest][vitest] 用于快速单元测试和代码覆盖率
+- Node.js 类型定义
+- [Prettier][prettier] 确保代码风格统一
+- NPM [脚本](#可用脚本) 支持常见操作
+- [EditorConfig][editorconfig] 统一编码风格
+- 通过 [Volta][volta] 实现可复现的环境
+- [GitHub Actions][gh-actions] 配置示例
+- TypeScript 代码和单元测试的简单示例
 
-🤲 Free as in speech: available under the APLv2 license.
+🤲 **自由开源**：基于 APLv2 许可证。
 
-## Getting Started
+---
 
-This project is intended to be used with the latest Active LTS release of [Node.js][nodejs].
+### **快速开始**
+建议使用最新的 Node.js [Active LTS 版本][nodejs]。
 
-### Use as a repository template
+#### **作为仓库模板使用**
+点击 **[Use template][repo-template-action]**（或绿色按钮），在 `src` 目录添加代码，在 `__tests__` 目录添加单元测试。
 
-To start, just click the **[Use template][repo-template-action]** link (or the green button). Start adding your code in the `src` and unit tests in the `__tests__` directories.
-
-### Clone repository
-
-To clone the repository, use the following commands:
-
+#### **克隆仓库**
 ```sh
 git clone https://github.com/jsynowiec/node-typescript-boilerplate
 cd node-typescript-boilerplate
 npm install
 ```
 
-### Download latest release
-
-Download and unzip the current **main** branch or one of the tags:
-
+#### **下载最新版本**
+下载并解压 **main** 分支或任一标签：
 ```sh
 wget https://github.com/jsynowiec/node-typescript-boilerplate/archive/main.zip -O node-typescript-boilerplate.zip
 unzip node-typescript-boilerplate.zip && rm node-typescript-boilerplate.zip
 ```
 
-## Available Scripts
+---
 
-- `clean` - remove coverage data, cache and transpiled files,
-- `prebuild` - lint source files and tests before building,
-- `build` - transpile TypeScript to ES6,
-- `build:watch` - interactive watch mode to automatically transpile source files,
-- `lint` - lint source files and tests,
-- `prettier` - reformat files,
-- `test` - run tests,
-- `test:watch` - interactive watch mode to automatically re-run tests
-- `test:coverage` - run test and print out test coverage
+### **可用脚本**
+- `clean` – 清除覆盖率数据缓存和编译文件
+- `prebuild` – 构建前校验源码和测试
+- `build` – 将 TypeScript 转译为 ES6
+- `build:watch` – 监听模式自动转译
+- `lint` – 校验源码和测试
+- `prettier` – 格式化文件
+- `test` – 运行测试
+- `test:watch` – 监听模式自动重运行测试
+- `test:coverage` – 运行测试并输出覆盖率
 
-## Additional Information
+---
 
-### Why include Volta
+### **附加说明**
+#### **为何包含 Volta**
+推荐[安装][volta-getting-started] Volta 以管理项目工具链。[Volta][volta] 确保工具始终遵循项目设置，切换项目时无需担心环境变更。例如，[LinkedIn 工程师][volta-tomdale] 用它标准化工具链并实现可复现环境。
 
-I recommend to [install][volta-getting-started] Volta and use it to manage your project's toolchain.
+#### **为何用 Vitest 而非 Jest**
+推荐使用 [Vitest][vitest] 进行 TypeScript 单元/集成测试。2023 年起，团队逐步将所有项目从 Jest 迁移至 Vitest。实践表明：
+1. Vitest 速度更快（尤其大型测试集）；
+2. 原生支持 ES 模块；
+3. 配置更简单；
+4. 与 TypeScript 协作的开发者体验更佳（如模拟间谍和类型）。  
+   *注：工具选择取决于项目具体需求。*
 
-[Volta][volta]’s toolchain always keeps track of where you are, it makes sure the tools you use always respect the settings of the project you’re working on. This means you don’t have to worry about changing the state of your installed software when switching between projects. For example, it's [used by engineers at LinkedIn][volta-tomdale] to standardize tools and have reproducible development environments.
+#### **ES 模块 (ESM)**
+此模板使用原生 [ESM][esm]。使用前请阅读：[Node.js ESM 文档][nodejs-esm] 及 [TypeScript 4.7 ESM 说明][ts47-esm]。  
+*如需 CommonJS，请参考 [转换指南][sindresorhus-esm]。*  
+**注意**：本仓库不接受 CommonJS/ESM 相关的问题。
 
-### Why Vitest instead of Jest
+---
 
-I recommend using [Vitest][vitest] for unit and integration testing of your TypeScript code.
+### **支持者 & 赞助商**
+通过成为 [赞助商][sponsor] 支持本项目。
 
-In 2023, my team and I gradually switched from Jest to [Vitest][vitest] in all the projects. We've found out that generally, Vitest is faster than Jest, especially for large test suits. Furthermore, Vitest has native support for ES modules, is easier to configure, and has a much nicer developer experience when used with TypeScript. For example, when working with mocks, spies and types.
-
-Nevertheless, the choice of specific tooling always depends on the specific requirements and characteristics of the project.
-
-### ES Modules
-
-This template uses native [ESM][esm]. Make sure to read [this][nodejs-esm], and [this][ts47-esm] first.
-
-If your project requires CommonJS, you will have to [convert to ESM][sindresorhus-esm].
-
-Please do not open issues for questions regarding CommonJS or ESM on this repo.
-
-## Backers & Sponsors
-
-Support this project by becoming a [sponsor][sponsor].
-
-## License
-
-Licensed under the APLv2. See the [LICENSE](https://github.com/jsynowiec/node-typescript-boilerplate/blob/main/LICENSE) file for details.
+### **许可证**
+基于 APLv2 许可证，详见 [LICENSE](https://github.com/jsynowiec/node-typescript-boilerplate/blob/main/LICENSE)。
 
 [ts-badge]: https://img.shields.io/badge/TypeScript-5.7-blue.svg
 [nodejs-badge]: https://img.shields.io/badge/Node.js-22-blue.svg
@@ -120,13 +111,12 @@ Licensed under the APLv2. See the [LICENSE](https://github.com/jsynowiec/node-ty
 [editorconfig]: https://editorconfig.org
 [vitest]: https://vitest.dev
 
-## 参考
+---
 
+### 参考项目
 * https://github.com/jsynowiec/node-typescript-boilerplate
 * https://github.com/vrn-deco/cli
 * https://github.com/ErKeLost/create-vite-app
 * https://github.com/kolorobot/vite-node-starter
 * https://github.com/vitejs/vite/tree/main/packages/create-vite
-
-
 * https://github.com/Uninen/tauri-vue-template
