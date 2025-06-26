@@ -7,10 +7,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # 步骤 1：检出代码仓库
       - uses: actions/checkout@v4
+      # 步骤 2：设置 Volta 环境
       - uses: volta-cli/action@v4
+      # 步骤 3：安装依赖
       - run: npm ci --no-audit
+      # 步骤 4：代码规范检查
       - run: npm run lint --if-present
+      # 步骤 5：代码格式检查
       - run: npm run prettier:check --if-present
+      # 步骤 6：运行测试
       - run: npm test
+      # 步骤 7：构建项目
       - run: npm run build --if-present

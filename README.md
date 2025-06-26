@@ -119,3 +119,14 @@ Licensed under the APLv2. See the [LICENSE](https://github.com/jsynowiec/node-ty
 [ts47-esm]: https://devblogs.microsoft.com/typescript/announcing-typescript-4-7/#esm-nodejs
 [editorconfig]: https://editorconfig.org
 [vitest]: https://vitest.dev
+
+## 参考
+
+* https://github.com/jsynowiec/node-typescript-boilerplate
+* https://github.com/vrn-deco/cli
+* https://github.com/ErKeLost/create-vite-app
+* https://github.com/kolorobot/vite-node-starter
+* https://github.com/vitejs/vite/tree/main/packages/create-vite
+
+
+* https://github.com/Uninen/tauri-vue-template

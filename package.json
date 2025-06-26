@@ -24,12 +24,12 @@
     "vitest": "~2.1"
   },
   "scripts": {
-    "start": "node build/src/main.js",
-    "clean": "rimraf coverage build tmp",
-    "prebuild": "npm run lint",
+    "start": "pnpm run build && node build/src/main.js",
+    "clean": "pnpm dlx rimraf coverage build tmp",
+    "prebuild": "pnpm run lint",
     "build": "tsc -p tsconfig.json",
     "build:watch": "tsc -w -p tsconfig.json",
-    "build:release": "npm run clean && tsc -p tsconfig.release.json",
+    "build:release": "pnpm run clean && tsc -p tsconfig.release.json",
     "lint": "eslint .",
     "test": "vitest run unit --config __tests__/vitest.config.ts",
     "test:coverage": "vitest run unit --config __tests__/vitest.config.ts --coverage.enabled --coverage.all",

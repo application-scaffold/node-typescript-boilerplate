@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "skipLibCheck": true, // 跳过第三方库类型检查
     "target": "es2022",
     "module": "node16",
     "lib": ["ES2022", "DOM"],
